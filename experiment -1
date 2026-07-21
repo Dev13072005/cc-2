@@ -1,0 +1,55 @@
+ex-1.1 (leetcode problem 217 and 219) 
+
+Aim: Given an integer array nums, return true if any value appears at least twice in the array
+      and return false if every element is distinct.
+      
+Algorithm:
+1.Find the size of the array.
+2.Use two nested loops to compare every element with every other element.
+3.If any two elements are equal, return true.
+4.If no duplicate is found after all comparisons, return false.
+
+Code:
+class Solution {
+public:
+    bool containsDuplicate(vector<int>& nums) {
+    int n=nums.size();
+        for(int i=0;i<n;i++){
+        for(int j=i+1;j<n;j++){
+            if(nums[i]==nums[j]){
+                return true;
+            }
+        }
+        }
+        return false; 
+
+    }
+};
+
+ex-1.2
+Aim:Given an integer array nums and an integer k, return true if there are two distinct indices i and j
+   in the array such that nums[i] == nums[j] and abs(i - j) <= k.
+   
+Algorithm:
+1.Find the size of the array.
+2.Use two nested loops to compare every pair of elements.
+3.If two elements are equal and the distance between their indices is less than or equal to k, return true.
+4.If no such pair is found after checking all elements, return false
+
+Code
+class Solution {
+public:
+    bool containsNearbyDuplicate(vector<int>& nums, int k) {
+        int n=nums.size();
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                if(nums[i]==nums[j]&& abs(i-j)<=k){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+};
+
+
