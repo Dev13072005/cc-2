@@ -1,0 +1,32 @@
+Experiment 2.1(LeetCode Problem 35)
+Aim:-Given a sorted integer array nums and an integer target, return the index if the target is found. If not, return the index where it should be inserted to maintain the sorted order.
+Algorithm:-
+Set low = 0 and high = n - 1.
+Find mid = (low + high) / 2.
+If low > high, return low (insert position).
+If nums[mid] == target, return mid.
+If target < nums[mid], recursively search the left half.
+Otherwise, recursively search the right half.
+Continue until the target is found or the insertion index is returned
+code:
+class Solution {
+public:
+    int searchInsert(vector<int>& nums, int target,int low,int high) {
+        int mid=(low+high)/2;
+        if(low>high){
+            return low;
+        }
+        else if(target==nums[mid]){
+                return mid;
+        }
+        else if(target<nums[mid]){
+            return searchInsert(nums,target,low,mid-1);
+        }
+        else {
+            return searchInsert(nums,target,mid+1,high);
+        }
+            }
+              int searchInsert(vector<int>& nums, int target) {
+                return searchInsert(nums,target,0,nums.size()-1);
+              }
+};
